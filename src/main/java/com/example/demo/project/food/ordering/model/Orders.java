@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Version;
 
 @Entity
 public class Orders {
@@ -24,6 +25,10 @@ public class Orders {
 
     private int quantity;
     private String status;
+    
+    @Version
+    private Long version;
+    
 	public Long getId() {
 		return id;
 	}

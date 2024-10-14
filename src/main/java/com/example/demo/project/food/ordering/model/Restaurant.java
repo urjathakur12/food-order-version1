@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Version;
 
 @Entity
 public class Restaurant {
@@ -20,6 +21,9 @@ public class Restaurant {
     private String name;
     private Double rating;
     private Integer maxCapacity;
+    
+    @Version
+    private Integer version; 
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "restaurant")
     private List<MenuItem> menuItems = new ArrayList<>();
